@@ -58,6 +58,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="button1" destination="FhS-tD-nRS" id="Lop-cm-bgl"/>
+                        <outlet property="button2" destination="TQ4-MU-SVY" id="STF-8A-fDs"/>
+                        <outlet property="mySwitch" destination="V7P-bv-4cb" id="fvo-7J-iB9"/>
+                        <outlet property="progress" destination="FHi-kI-f2Q" id="elp-p3-a1e"/>
+                        <outlet property="segmentedControl" destination="4MM-a9-TFa" id="8ha-ks-aoQ"/>
+                        <outlet property="slider" destination="e3u-oa-wqh" id="uEz-Kd-Bmj"/>
+                        <outlet property="textEdit" destination="wX6-dg-zZ1" id="yXl-iD-3nL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

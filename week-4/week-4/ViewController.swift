@@ -8,6 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet var button1: UIButton!
+    @IBOutlet var button2: UIButton!
+    @IBOutlet var segmentedControl: UISegmentedControl!
+    @IBOutlet var textEdit: UITextField!
+    @IBOutlet var slider: UISlider!
+    @IBOutlet var mySwitch: UISwitch!
+    @IBOutlet var progress: UIProgressView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
