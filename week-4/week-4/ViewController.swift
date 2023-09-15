@@ -16,6 +16,29 @@ class ViewController: UIViewController {
     @IBOutlet var mySwitch: UISwitch!
     @IBOutlet var progress: UIProgressView!
     
+    var switchIsOn: Bool = true
+    
+    var textIndex: Int = 0
+    var textMemory = [
+        "", ""
+    ]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.progress.progress = self.slider.value
+    }
+    
+    func rememberSwitchPosition() {
+        self.switchIsOn = self.mySwitch.isOn
+    }
+    
+    func handleSegmentedControlChange() {
+        self.textMemory[self.textIndex] = self.textEdit.text ?? "[None]"
+        self.textIndex = self.segmentedControl.selectedSegmentIndex
+        self.textEdit.text = self.textMemory[self.textIndex]
+    }
+    
     @IBAction func buttonTapped(_ sender: UIButton) {
         print("Button tapped")
     }
@@ -24,8 +47,9 @@ class ViewController: UIViewController {
         print("Dragged a button")
     }
     
-    @IBAction func segmentedControlChanges(_ sender: UISegmentedControl) {
-        print("The segmented control was changed")
+    @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+        self.handleSegmentedControlChange()
+        print("The segmented control was changed to index: \(sender.selectedSegmentIndex)")
     }
     
     @IBAction func textEditChanged(_ sender: UITextField) {
@@ -34,18 +58,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sliderChanged(_ sender: UISlider) {
+        if ( self.switchIsOn ) {
+            self.progress.progress = sender.value
+        }
+        
         print("the slider has changed to: \(sender.value)")
     }
     
     @IBAction func switchChanged(_ sender: UISwitch) {
+        self.rememberSwitchPosition()
         print("the switch is now: \(sender.isOn)")
     }
     
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+    
 
 
 }
