@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var textEdit: UITextField!
     @IBOutlet var slider: UISlider!
-    @IBOutlet var mySwitch: UISwitch!
+    @IBOutlet var theSwitch: UISwitch!
     @IBOutlet var progress: UIProgressView!
     
     var switchIsOn: Bool = true
@@ -29,8 +29,9 @@ class ViewController: UIViewController {
         self.progress.progress = self.slider.value
     }
     
-    func rememberSwitchPosition() {
-        self.switchIsOn = self.mySwitch.isOn
+    
+    func updateSwitchLabel() {
+        self.switchToggled = self.theSwitch.isOn
     }
     
     func handleSegmentedControlChange() {
@@ -65,9 +66,15 @@ class ViewController: UIViewController {
         print("the slider has changed to: \(sender.value)")
     }
     
-    @IBAction func switchChanged(_ sender: UISwitch) {
-        self.rememberSwitchPosition()
-        print("the switch is now: \(sender.isOn)")
+    @IBAction func switchToggled(theSwitch sw: UISwitch) {
+        if ( sw.isOn) {
+            print("the switch is toggled on!")
+            self.switchStatusLabel.text = "Switch is on"
+        }
+        else {
+            print("The switch is toggled off")
+            self.switchStatusLabel.text = "Switch is off"
+        }
     }
     
 
